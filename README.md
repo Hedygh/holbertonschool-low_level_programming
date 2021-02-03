@@ -1,3 +1,3 @@
-	# Low Level Programming #
+	# Low Level Programming
 
-	## Starting With C ##
+	## Starting With C
