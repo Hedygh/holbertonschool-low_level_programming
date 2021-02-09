@@ -4,7 +4,6 @@
  * @n: value of number
  * Return: 1 for positive and 0 for zero and -1 for negative
  */
-#include<stdio.h>
 int print_sign(int n)
 {
 	if (n < 0)
