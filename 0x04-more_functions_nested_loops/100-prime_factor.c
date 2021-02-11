@@ -8,17 +8,17 @@
 
 int main(void)
 {
-	int c = 2;
+	long int c = 2;
 	long int num = 612852475143;
 
 	while (num > 1)
 	{
+		c++;
 		while (num % c == 0)
 		{
 			num = num / c;
 		}
-		c++;
 	}
-	printf("%d\n", c);
+	printf("%ld\n", c);
 	return (0);
 }
