@@ -1,4 +1,3 @@
-#include "holberton.h"
 #include <stdio.h>
 /**
  * _atoi - convert string to integer
@@ -20,13 +19,18 @@ int _atoi(char *s)
 		}
 		i++;
 	}
-	while (s[i] >= '0' && s[i] <= '9')
+	if (s[i] >= '0' && s[i] <= '9')
 	{
-		res = res * 10 + s[i] - '0';
-		i++;
+		while (s[i] >= '0' && s[i] <= '9')
+		{
+			res = res * 10 + s[i] - '0';
+			i++;
+		}
 	}
-	if ((res >= 0) || (res <= 0))
-	return (res * sign);
 	else
-		return (0);
+	{
+		res = 0;
+		return (res);
+	}
+	return (res * sign);
 }
