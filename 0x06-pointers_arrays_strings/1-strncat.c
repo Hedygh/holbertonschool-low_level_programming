@@ -1,21 +1,21 @@
 /**
- * _strcat - append src to dest
+ * _strncat - append n bytes from src to dest
  * @dest: base string
  * @src: string to append
- * Return: pointer to new dest string
+ * @n: bytes limit
+ * Return: pointer to dest
  */
 
-char *_strcat(char *dest, char *src)
+char *_strncat(char *dest, char *src, int n)
 {
 	int i = 0;
-	int j;
+	int j = 0;
 
 	while (dest[i])
 	{
 		i++;
 	}
-	j = 0;
-	while (src[j])
+	while (src[j] && j < n)
 	{
 		dest[i + j] = src[j];
 		j++;
