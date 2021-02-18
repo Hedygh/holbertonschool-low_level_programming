@@ -12,9 +12,7 @@ void ft_putnbr(int n)
 		n = -n;
 	}
 	if (n <= 9)
-	{
 		_putchar(n + '0');
-	}
 	if (n > 9)
 	{
 		ft_putnbr(n / 10);

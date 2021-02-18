@@ -34,3 +34,10 @@ void puts_half(char *str)
 	}
 	_putchar('\n');
 }
+
+int main(void)
+{
+	char str[] = "012345678";
+	puts_half(str);
+	return(0);
+}
