@@ -8,3 +8,5 @@
 6. Cap string: Capitalizes words using separators
 7. leet: encode a string to numbers
 8. Rot 13: print string using rot13
+100. Print numbers
+101. Pointers arithmetic test
