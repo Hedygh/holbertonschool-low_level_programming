@@ -4,25 +4,25 @@
  * @accept: substring bytes to check
  * Return: number of bytes from accept in s string (+1 for '\0')
  */
+#include <stdio.h>
 unsigned int  _strspn(char *s, char *accept)
 {
 	unsigned int n = 0;
 	int i = 0;
 	int j = 0;
 
-	while (accept[i])
+	while (s[i])
 	{
-		while (s[j])
+		j = 0;
+		while (accept[j] != s[i])
 		{
-			if (accept[i] == s[j])
+			if (accept[j] == '\0')
 			{
-				n = n + 1;
-				break;
+			return (i);
 			}
-			j++;
+		       j++;
 		}
 		i++;
-		j = 0;
 	}
-	return (n + 1);
+	return (i);
 }
