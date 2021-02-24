@@ -11,7 +11,7 @@ int _sqrt2(int n, int i)
 		return (i);
 	if (i * i > n)
 		return (-1);
-	_sqrt2(n, i + 1);
+	return (_sqrt2(n, i + 1));
 }
 /**
  * _sqrt_recursion - find square root of number recursively
@@ -26,4 +26,22 @@ int _sqrt_recursion(int n)
 	if (n == 1)
 		return (1);
 	return (_sqrt2(n, 1));
+}
+int main(void)
+{
+    int r;
+
+    r = _sqrt_recursion(1);
+    printf("%d\n", r);
+    r = _sqrt_recursion(1024);
+    printf("%d\n", r);
+    r = _sqrt_recursion(16);
+    printf("%d\n", r);
+    r = _sqrt_recursion(17);
+    printf("%d\n", r);
+    r = _sqrt_recursion(25);
+    printf("%d\n", r);
+    r = _sqrt_recursion(-1);
+    printf("%d\n", r);
+    return (0);
 }
