@@ -17,7 +17,8 @@ int is(char *s1, char *s2, int i, int j)
 		return (is(s1, s2, i + 1, j + 1));
 	if (s2[j] == '*')
 		return ((is(s1, s2, i, j + 1)) || (is(s1, s2, i + 1, j)));
-
+	if (s1[i] != s2[j])
+		return (0);
 	return (0);
 }
 /**
@@ -29,7 +30,5 @@ int is(char *s1, char *s2, int i, int j)
 
 int wildcmp(char *s1, char *s2)
 {
-	if (*s1 != *s2)
-		return (0);
 	return (is(s1, s2, 0, 0));
 }
