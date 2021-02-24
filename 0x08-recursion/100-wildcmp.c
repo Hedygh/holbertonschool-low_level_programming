@@ -17,6 +17,8 @@ int is(char *s1, char *s2, int i, int j)
 
 	if (s2[j] == '*')
 		return ((is(s1, s2, i, j + 1)) || (is(s1, s2, i + 1, j)));
+	if (s1[i] != s2[j])
+		return (0);
 
 	return (0);
 }
