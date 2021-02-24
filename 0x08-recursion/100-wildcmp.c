@@ -30,7 +30,7 @@ int is(char *s1, char *s2, int i, int j)
 
 int wildcmp(char *s1, char *s2)
 {
-	if (*s1 == '\0' && *s2 == '\0')
+	if (*s1 == '\0' || *s2 == '\0')
 		return (0);
 	return (is(s1, s2, 0, 0));
 }
