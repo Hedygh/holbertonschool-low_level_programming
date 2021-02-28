@@ -10,13 +10,7 @@
 int main(int ac, char **av)
 {
 	(void) av;
-	int i = 0;
 
-	if (ac >= 0)
-	{
-		while (i < ac - 1)
-			i++;
-	}
-	printf("%d\n", i);
+	printf("%d\n", ac - 1);
 	return (0);
 }
