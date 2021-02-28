@@ -8,31 +8,29 @@
  */
 int change_cents(int res)
 {
-	int i = 1, j = 0;
+	int i;
+
+		i = 0;
 
 	if (res > 25)
 	{
 		i = res / 25;
-		j = res % 25;
-		res = j;
+		res = res % 25;
 	}
 	if (res >= 10)
 	{
-		i = i + j / 10;
-		j = res % 10;
-		res = j;
+		i += res / 10;
+		res = res % 10;
 	}
 	if (res >= 5)
 	{
-		i = i + j / 5;
-		j = res % 5;
-		res = j;
+		i += res / 5;
+		res = res % 5;
 	}
 	if (res >= 2)
 	{
-		i = i + j / 2;
-		j = res % 2;
-		res = j;
+		i += res / 2;
+		res = res % 2;
 	}
 	if (res == 1)
 		i++;
@@ -47,14 +45,14 @@ int change_cents(int res)
  */
 int main(int ac, char **av)
 {
-	int i = 1, j = 0, res;
+	int res;
 
 	if (ac < 2)
 	{
 		printf("Error\n");
 			return (1);
 	}
-	if (av[1][j] == '-')
+	if (av[1][0] == '-')
 	{
 		printf("0\n");
 		return (0);
