@@ -88,10 +88,10 @@ char **strtow(char *str)
 
 	while (i < cw)
 	{
-		while (ft_checkspace(str, j) == 0 && str[j])
+	//	while (ft_checkspace(str, j) == 0 && str[j])
 			j++;
 		n = 0;
-		while (ft_checkspace(str, j + n) == 1 && str[j + n])
+	//	while (ft_checkspace(str, j + n) == 1 && str[j + n])
 			n++;
 		tab[i] = _strndup(&str[j], n);
 		j += n;
