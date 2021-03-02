@@ -1,5 +1,3 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
 int _putchar(char c);
 char *create_array(unsigned int size, char c);
 char *_strdup(char *str);
@@ -14,4 +12,3 @@ char **strtow(char *str);
 int ft_countword(char *str);
 int ft_checkspace(char *str, int i);
 char *_strndup(char *str, int n);
-#endif
