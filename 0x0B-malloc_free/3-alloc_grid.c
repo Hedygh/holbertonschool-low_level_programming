@@ -4,7 +4,7 @@
 
 #include "holberton.h"
 /**
- * free_grid - free 2d array of int
+ * _free_grid - free 2d array of int
  * @grid: array
  * @height: row of array
  * Description: free every elements of array then the whole array
