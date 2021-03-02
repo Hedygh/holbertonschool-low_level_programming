@@ -80,6 +80,8 @@ char **strtow(char *str)
 
 	if (str == 0)
 		return (0);
+	if (str == '\0')
+		return (0);
 
 	tab = malloc(sizeof(char *) * (cw + 1));
 	if (!tab)
