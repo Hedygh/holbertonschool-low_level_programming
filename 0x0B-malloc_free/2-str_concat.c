@@ -22,11 +22,13 @@ int _strlen(char *str)
  */
 char *str_concat(char *s1, char *s2)
 {
-	int len = _strlen(s1) + _strlen(s2);
+	int len;
 	int i = 0;
 	int j = 0;
 	char *s3;
 
+	if (s1 != 0 && s2 != 0)
+		len = _strlen(s1) + _strlen(s2);
 	if (s1 == 0)
 		s1 = "";
 	if (s2 == 0)
