@@ -53,6 +53,7 @@ char *argstostr(int ac, char **av)
 	int i = 0;
 	int lenght = 0;
 	char *str;
+	int j = 0;
 
 	if (ac == 0 || av == 0)
 		return (0);
@@ -71,5 +72,8 @@ char *argstostr(int ac, char **av)
 		_strcat(str, av[i]);
 		i++;
 	}
+	while (str[j])
+		j++;
+	str[j] = '\0';
 	return (str);
 }
