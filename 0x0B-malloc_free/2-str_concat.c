@@ -2,11 +2,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * _strlen - find lenght of string
+ * _strlen - lenght
  * @str: string
- * Return: lenght of string
+ * Return: lenght value
  */
-
 int _strlen(char *str)
 {
 	int i = 0;
@@ -32,7 +31,7 @@ char *str_concat(char *s1, char *s2)
 		s1 = '\0';
 	if (s2 == 0)
 		s2 = '\0';
-	s3 = malloc(sizeof(char) * len + 1)
+	s3 = malloc(sizeof(char) * len + 1);
 		if (!s3)
 			return (0);
 	while (s1[i])
