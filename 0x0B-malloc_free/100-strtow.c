@@ -77,7 +77,7 @@ char **strtow(char *str)
 	int cw = _countword(str);
 	int i = 0;
 	int j = 0;
-	int n = 0;
+	int n;
 
 	if (str == 0 || str == "")
 		return (0);
