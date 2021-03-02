@@ -11,7 +11,7 @@
  * Return: None
  */
 
-void free_grid(int **grid, int height)
+void _free_grid(int **grid, int height)
 {
 	int i = 0;
 
@@ -47,7 +47,7 @@ int **alloc_grid(int width, int height)
 		tab[i] = malloc(sizeof(int) * width);
 		if (!tab[i])
 		{
-			free_grid(tab, height);
+			_free_grid(tab, height);
 			return (NULL);
 		}
 		i++;
