@@ -9,6 +9,3 @@ int _strlen(char *str);
 char *argstostr(int ac, char **av);
 char *_strcat(char *dest, char *src);
 char **strtow(char *str);
-int ft_countword(char *str);
-int ft_checkspace(char *str, int i);
-char *_strndup(char *str, int n);
