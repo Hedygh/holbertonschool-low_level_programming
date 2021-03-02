@@ -26,24 +26,24 @@ char *_strndup(char *str, int n)
 	return (dest);
 }
 /**
- * ft_checkspace - check string for space
+ * _checkspace - check string for space
  * @str: string
  * @i: string index
  * Return: 0 for space else 1
  */
-int ft_checkspace(char *str, int i)
+int _checkspace(char *str, int i)
 {
 	if (str[i] == ' ')
 		return (0);
 	return (1);
 }
 /**
- * ft_countword - count word
+ * _countword - count word
  * @str: string
  *
  * Return: number of words
  */
-int ft_countword(char *str)
+int _countword(char *str)
 {
 	int i = 0;
 	int j = 0;
@@ -51,10 +51,10 @@ int ft_countword(char *str)
 
 	while (str[i])
 	{
-		while (ft_checkspace(str, i) == 0)
+		while (_checkspace(str, i) == 0)
 			i++;
 		j = 0;
-		while (ft_checkspace(str, i + j) == 1 && str[i + j])
+		while (_checkspace(str, i + j) == 1 && str[i + j])
 		{
 			j++;
 		}
@@ -74,7 +74,7 @@ int ft_countword(char *str)
 char **strtow(char *str)
 {
 	char **tab;
-	int cw = ft_countword(str);
+	int cw = _countword(str);
 	int i = 0;
 	int j = 0;
 	int n = 0;
@@ -88,10 +88,10 @@ char **strtow(char *str)
 
 	while (i < cw)
 	{
-	//	while (ft_checkspace(str, j) == 0 && str[j])
+		while (_checkspace(str, j) == 0 && str[j])
 			j++;
 		n = 0;
-	//	while (ft_checkspace(str, j + n) == 1 && str[j + n])
+		while (_checkspace(str, j + n) == 1 && str[j + n])
 			n++;
 		tab[i] = _strndup(&str[j], n);
 		j += n;

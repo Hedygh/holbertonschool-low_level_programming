@@ -12,7 +12,7 @@ char *argstostr(int ac, char **av);
 char *_strcat(char *dest, char *src);
 char **strtow(char *str);
 char *_strndup(char *str, int n);
-int ft_checkspace(char *str, int i);
-int ft_countword(char *str);
+int _checkspace(char *str, int i);
+int _countword(char *str);
 
 #endif
