@@ -1,4 +1,5 @@
 #include "holberton.h"
+#include <stdlib.h>
 /**
  * free_grid - free 2d array of int
  * @grid: array
