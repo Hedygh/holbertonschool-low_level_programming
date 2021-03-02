@@ -27,7 +27,7 @@ char *_strcat(char *dest, char *src)
 	int i = 0;
 	int j;
 
-	while (dest[i])
+	while (dest[i] != '\0')
 	{
 		i++;
 	}
@@ -37,7 +37,7 @@ char *_strcat(char *dest, char *src)
 		dest[i + j] = src[j];
 		j++;
 	}
-	dest[i + j] = '\n';
+	dest[i + j] = '\0';
 	return (dest);
 }
 
@@ -47,12 +47,11 @@ char *_strcat(char *dest, char *src)
  * @av: arguments
  * Return: pointer to the new string or 0 if fail
  */
-
 char *argstostr(int ac, char **av)
 {
 	int i = 0;
 	int lenght = 0;
-	char *str;
+	char *str = NULL;
 	int j = 0;
 
 	if (ac == 0 || av == 0)
@@ -62,14 +61,15 @@ char *argstostr(int ac, char **av)
 		lenght += _strlen(av[i]);
 		i++;
 	}
-	str = malloc(sizeof(char) * lenght + 1);
+	str = malloc(sizeof(char) * (lenght + ac + 1));
 	if (!str)
 		return (0);
-	str[0] = '\0';
 	i = 0;
+	str[0] = '\0';
 	while (i < ac)
 	{
 		_strcat(str, av[i]);
+		_strcat(str, "\n");
 		i++;
 	}
 	while (str[j])
