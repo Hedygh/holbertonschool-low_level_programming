@@ -28,9 +28,9 @@ char *str_concat(char *s1, char *s2)
 	char *s3;
 
 	if (s1 == 0)
-		s1 = '\0';
+		s1 = "";
 	if (s2 == 0)
-		s2 = '\0';
+		s2 = "";
 	s3 = malloc(sizeof(char) * len + 1);
 		if (!s3)
 			return (0);
