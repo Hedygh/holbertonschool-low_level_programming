@@ -1,6 +1,5 @@
 #include "holberton.h"
 #include <stdlib.h>
-#include <stdio.h>
 /**
  * _strndup - duplicate string
  * @str: string to duplicate
@@ -79,7 +78,7 @@ char **strtow(char *str)
 	int j = 0;
 	int n;
 
-	if (str == 0 || str == "")
+	if (str == 0)
 		return (0);
 
 	tab = malloc(sizeof(char *) * (cw + 1));
