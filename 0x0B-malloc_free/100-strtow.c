@@ -78,9 +78,7 @@ char **strtow(char *str)
 	int j = 0;
 	int n;
 
-	if (str == 0)
-		return (0);
-	if (str == '\0')
+	if (str == 0 || cw == 0 || !str)
 		return (0);
 
 	tab = malloc(sizeof(char *) * (cw + 1));
