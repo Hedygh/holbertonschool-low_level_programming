@@ -27,6 +27,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int j = 0;
 	int lenght = _strlen(s1) + _strlen(s2);
 	int minus = 0;
+
 	if (s1 == 0)
 		s1 = "";
 	if (s2 == 0)
