@@ -5,7 +5,7 @@
  * @s: string to evaluate
  * Return: lenght value
  */
-int _strlen(char *s)
+unsigned int _strlen(char *s)
 {
 	unsigned int i = 0;
 
