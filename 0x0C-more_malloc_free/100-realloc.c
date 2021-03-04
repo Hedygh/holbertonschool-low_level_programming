@@ -2,20 +2,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-/**
- * malloc_checked - allocate n bytes to memory
- * @b: bytes to allocate
- * Return: void pointer to memory space or null if fail
- */
-void *malloc_checked(unsigned int b)
-{
-	void *p;
-
-	p = malloc(b);
-	if (!p)
-		exit(98);
-	return (p);
-}
 
 /**
  * _memcpy - copy n bytes from src memory area to dest memory area
@@ -48,7 +34,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 	void *p;
 
 	if (!ptr)
-		return (malloc_checked(new_size));
+		return (malloc(new_size));
 
 	if (new_size <= old_size)
 		return (ptr);
