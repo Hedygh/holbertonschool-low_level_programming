@@ -28,10 +28,6 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int length;
 	unsigned int minus = 0;
 
-	if (s1 == 0)
-		s1 = "";
-	if (s2 == 0)
-		s2 = "";
 	if (_strlen(s1) == 0 || _strlen(s2) == 0)
 		return (0);
 
