@@ -12,20 +12,16 @@ int *array_range(int min, int max)
 {
 	int *tab;
 	int i = 0;
+	int sum = max - min + 1;
 
 	if (min > max)
 		return (0);
-	if (min == max)
-	{
-		tab = 0;
-		return (tab);
-	}
 
-	tab = malloc(sizeof(int) * (max - min) + 1);
+	tab = malloc(sizeof(int) * (sum));
 	if (!tab)
 		return (0);
 
-	while (i <= max)
+	while (i < sum)
 	{
 		tab[i] = min;
 		i++;
