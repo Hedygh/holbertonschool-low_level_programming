@@ -25,8 +25,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *s3;
 	unsigned int i = 0;
 	unsigned int j = 0;
-	int length;
-	int minus = 0;
+	unsigned int length;
+	unsigned int minus = 0;
 
 	if (s1 == 0)
 		s1 = "";
