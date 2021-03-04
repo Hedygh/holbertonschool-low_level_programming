@@ -29,13 +29,13 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	int lenght = _strlen(s1) + _strlen(s2);
 	int minus = 0;
 
+	if (_strlen(s1) == 0 || _strlen(s2) == 0)
+		return (0);
 	if (n < _strlen(s2))
 	{
 		minus = _strlen(s2) - n;
 		lenght -= minus;
 	}
-	if (_strlen(s1) == 0 || _strlen(s2) == 0)
-		return (0);
 	s3 = malloc(sizeof(char) * lenght + 1);
 	if (!s3)
 		return (0);
