@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 /**
  * _memset - fills n bytes of s with byte b
  * @s: pointer to memory area
@@ -56,16 +57,21 @@ int _strlen(char *s)
 }
 
 /**
- * _isdigit - check for digit
- * @c: digit sent to check
- * Return: 1 for digit else 0
+ * checkzero - check
+ * @str: s1
+ * Return: 0 if zero
  */
-int _isdigit(char c)
+int checkzero(char *str)
 {
-	if (c >= '0' && c <= '9')
-		return (1);
-	else
-		return (0);
+	int i = 0;
+
+	while (str[i])
+	{
+		if (str[i] != '0')
+			return (0);
+		i++;
+	}
+	return (1);
 }
 /**
  * revandzero - sup zeros and reverse array to string
@@ -154,6 +160,19 @@ char *mul(char *s1, char *s2)
 	return (str);
 }
 /**
+ * _isnumber - check num
+ * @str: string
+ * Return: 0 if no num
+ */
+int _isnumber(char *str)
+{
+	if (*str == '\0')
+		return (1);
+	if (!isdigit(*str))
+		return (0);
+	_isnumber(str + 1);
+}
+/**
  * main - call for mul
  * @ac: number of av
  * @av: arguments
@@ -161,30 +180,25 @@ char *mul(char *s1, char *s2)
  */
 int main(int ac, char **av)
 {
-	int i = 0;
-	int j = 0;
+	int i = 1;
 
 	if (ac == 3)
 	{
 		if (_strlen(av[1]) == 0 || _strlen(av[2]) == 0)
 			return (0);
-		while (av[1][i])
+		while (i < ac)
 		{
-			if (_isdigit(av[1][i]) == 0)
+			if (!_isnumber(av[i]))
 			{
 				printf("Error\n");
 				exit(98);
+			}
+			if (checkzero(av[i]) == 1)
+			{
+			printf("0\n");
+			return (0);
 			}
 			i++;
-		}
-		while (av[2][j])
-		{
-			if (_isdigit(av[2][j]) == 0)
-			{
-				printf("Error\n");
-				exit(98);
-			}
-			j++;
 		}
 		printf("%s\n", mul(av[1], av[2]));
 		free(mul(av[1], av[2]));
