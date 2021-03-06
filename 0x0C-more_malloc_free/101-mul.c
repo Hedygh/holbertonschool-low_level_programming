@@ -91,7 +91,10 @@ char *revandzero(int *tab, int i, int j, int length, char *str, int digit)
 	length = i + 1;
 	str = malloc(sizeof(char) * length + 1);
 	if (!str)
+	{
+		free(tab);
 		return (0);
+	}
 	j = 0;
 	while (j < length)
 	{
@@ -168,16 +171,21 @@ int main(int ac, char **av)
 			return (0);
 		while (av[1][i])
 		{
-			while (av[2][j] || av[1][i])
+			if (_isdigit(av[1][i]) == 0)
 			{
-				if (_isdigit(av[1][i]) == 0 || _isdigit(av[2][j]) == 0)
-				{
-					printf("Error\n");
-					exit(98);
-				}
-				j++;
+				printf("Error\n");
+				exit(98);
 			}
 			i++;
+		}
+		while (av[2][j])
+		{
+			if (_isdigit(av[2][j]) == 0)
+			{
+				printf("Error\n");
+				exit(98);
+			}
+			j++;
 		}
 		printf("%s\n", mul(av[1], av[2]));
 		free(mul(av[1], av[2]));
