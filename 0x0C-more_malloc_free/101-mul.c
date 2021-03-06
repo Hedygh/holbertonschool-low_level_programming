@@ -1,7 +1,46 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "holberton.h"
+/**
+ * _memset - fills n bytes of s with byte b
+ * @s: pointer to memory area
+ * @b: bytes to fill in
+ * @n: size of the adress
+ * Return: pointer to s
+ */
 
+char *_memset(char *s, char b, unsigned int n)
+{
+	unsigned int i = 0;
+
+	while (i < n)
+	{
+		s[i] = b;
+		i++;
+	}
+	return (s);
+}
+/**
+ * _calloc - reproduce the bahavior of calloc
+ * @nmemb: numbers of line to array
+ * @size: size of array
+ * Description: use malloc to allocate memory large enough for an array
+ * initializing to zero
+ * Return: pointer value or null if fail
+ */
+void *_calloc(unsigned int nmemb, unsigned int size)
+{
+	void *p;
+
+	if (nmemb == 0 || size == 0)
+		return (0);
+	p = malloc(nmemb * size);
+	if (!p)
+		return (0);
+
+	p = _memset(p, 0, nmemb * size);
+	return (p);
+}
 /**
  * _strlen - return the lenght of string
  * @s: string to mesure
@@ -22,7 +61,7 @@ int _strlen(char *s)
  * @c: digit sent to check
  * Return: 1 for digit else 0
  */
-int _isdigit(int c)
+int _isdigit(char c)
 {
 	if (c >= '0' && c <= '9')
 		return (1);
@@ -61,7 +100,7 @@ char *revandzero(int *tab, int i, int j, int length, char *str, int digit)
 		j++;
 	}
 	free(tab);
-	str[length] = '\0';
+	str[j] = '\0';
 	return (str);
 }
 /**
@@ -82,7 +121,7 @@ char *mul(char *s1, char *s2)
 	int *tab;
 	char *str;
 
-	tab = malloc(sizeof(int) * length);
+	tab = _calloc(sizeof(int), length);
 	if (!tab)
 		return (0);
 	sum = 0;
@@ -129,7 +168,7 @@ int main(int ac, char **av)
 			return (0);
 		while (av[1][i])
 		{
-			while (av[2][j])
+			while (av[2][j] || av[1][i])
 			{
 				if (_isdigit(av[1][i]) == 0 || _isdigit(av[2][j]) == 0)
 				{
