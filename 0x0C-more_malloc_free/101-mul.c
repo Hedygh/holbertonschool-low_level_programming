@@ -80,12 +80,11 @@ char *mul(char *s1, char *s2)
 	int index2 = 0;
 	int digit, digit2;
 	int *tab;
+	char *str;
 
 	tab = malloc(sizeof(int) * length);
 	if (!tab)
 		return (0);
-	char *str;
-
 	sum = 0;
 
 	i = len1 - 1;
