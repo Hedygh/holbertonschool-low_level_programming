@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 #include "holberton.h"
 
 /**
@@ -111,7 +110,8 @@ char *mul(char *s1, char *s2)
 		i--;
 	}
 	i = index + index2 - 1;
-	return (revandzero(tab, i, j, length, str, digit));
+	str = revandzero(tab, i, j, length, str, digit);
+	return (str);
 }
 /**
  * main - call for mul
@@ -142,6 +142,7 @@ int main(int ac, char **av)
 			i++;
 		}
 		printf("%s\n", mul(av[1], av[2]));
+		free(mul(av[1], av[2]));
 	}
 	else
 	{
