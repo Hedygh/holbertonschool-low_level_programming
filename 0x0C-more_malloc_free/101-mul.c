@@ -83,7 +83,7 @@ int checkzero(char *str)
  * Return: str
  */
 char *revandzero(int *tab, int i, int j, int length, int digit)
-{	
+{
 	char *str;
 
 	while (i >= 0 && tab[i] == 0)
