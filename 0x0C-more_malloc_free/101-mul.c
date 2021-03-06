@@ -79,12 +79,13 @@ int checkzero(char *str)
  * @i: index
  * @j: index
  * @length: length
- * @str: new string
  * @digit: digit
  * Return: str
  */
-char *revandzero(int *tab, int i, int j, int length, char *str, int digit)
-{
+char *revandzero(int *tab, int i, int j, int length, int digit)
+{	
+	char *str;
+
 	while (i >= 0 && tab[i] == 0)
 	{
 		if (tab[i] != 0)
@@ -127,6 +128,7 @@ char *mul(char *s1, char *s2)
 	int index2 = 0;
 	int digit, digit2;
 	int *tab;
+	char *str;
 
 	tab = _calloc(sizeof(int), length);
 	if (!tab)
@@ -155,9 +157,7 @@ char *mul(char *s1, char *s2)
 		i--;
 	}
 	i = index + index2 - 1;
-	char *str;
-
-	str = revandzero(tab, i, j, length, str, digit);
+	str = revandzero(tab, i, j, length, digit);
 	return (str);
 }
 /**
