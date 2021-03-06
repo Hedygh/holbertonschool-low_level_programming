@@ -170,7 +170,8 @@ int _isnumber(char *str)
 		return (1);
 	if (!isdigit(*str))
 		return (0);
-	_isnumber(str + 1);
+	else
+		return (_isnumber(str + 1));
 }
 /**
  * main - call for mul
@@ -195,8 +196,8 @@ int main(int ac, char **av)
 			}
 			if (checkzero(av[i]) == 1)
 			{
-			printf("0\n");
-			return (0);
+				printf("0\n");
+				return (0);
 			}
 			i++;
 		}
