@@ -146,7 +146,7 @@ int main(int ac, char **av)
 	else
 	{
 		printf("Error\n");
-		return (98);
+		exit(98);
 	}
 	return (0);
 }
