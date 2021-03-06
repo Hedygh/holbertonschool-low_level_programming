@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include "holberton.h"
 
 /**
  * _strlen - return the lenght of string
@@ -141,7 +142,6 @@ int main(int ac, char **av)
 			i++;
 		}
 		printf("%s\n", mul(av[1], av[2]));
-		free(mul(av[1], av[2]));
 	}
 	else
 	{
