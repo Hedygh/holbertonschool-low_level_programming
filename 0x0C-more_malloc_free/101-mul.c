@@ -127,7 +127,6 @@ char *mul(char *s1, char *s2)
 	int index2 = 0;
 	int digit, digit2;
 	int *tab;
-	char *str;
 
 	tab = _calloc(sizeof(int), length);
 	if (!tab)
@@ -156,6 +155,8 @@ char *mul(char *s1, char *s2)
 		i--;
 	}
 	i = index + index2 - 1;
+	char *str;
+
 	str = revandzero(tab, i, j, length, str, digit);
 	return (str);
 }
