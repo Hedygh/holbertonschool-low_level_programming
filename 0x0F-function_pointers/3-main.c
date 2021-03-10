@@ -20,7 +20,7 @@ int main(int ac, char **av)
 		exit(98);
 	}
 	i = atoi(av[1]);
-	j = atoi(av[2]);
+	j = atoi(av[3]);
 	if ((j == 0) && (av[2][0] == '/' || av[2][0] == '%'))
 	{
 		printf("Error\n");
