@@ -1,5 +1,5 @@
 #include "3-calc.h"
-#include <string.h>
+#include <stddef.h>
 /**
  * get_op_func - find the op
  * @s: string to check
