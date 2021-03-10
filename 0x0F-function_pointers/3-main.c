@@ -23,7 +23,7 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(100);
 	}
-	if (strlen(av[2]) > 1)
+	if (strlen(av[2]) != 1)
 	{
 		printf("Error\n");
 		exit(99);
@@ -44,6 +44,6 @@ int main(int ac, char **av)
 	j = atoi(av[3]);
 	i = atoi(av[1]);
 	res = get_op_func(av[2]);
-	printf("%d\n", res(i, j);
+	printf("%d\n", res(i, j));
 	return (0);
 }
