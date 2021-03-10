@@ -14,6 +14,7 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(98);
 	}
+	int result;
 	int i = atoi(av[1]);
 	int j = atoi(av[3]);
 	int (*res)(int, int);
@@ -29,8 +30,8 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(99);
 	}
-
 	res = get_op_func(av[2]);
-	printf("%d\n", res(i, j));
+	result = res(i, j);
+	printf("%d\n", result);
 	return (0);
 }
