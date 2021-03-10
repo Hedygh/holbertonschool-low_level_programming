@@ -24,12 +24,12 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(100);
 	}
-	if (av[2][0] != '%' && av[2][0] != '+' && av[2][0] != '/' &&
+	/*if (av[2][0] != '%' && av[2][0] != '+' && av[2][0] != '/' &&
 			av[2][0] != '-' && av[2][0] != '*')
 	{
 		printf("Error\n");
 		exit(99);
-	}
+	} */
 	res = get_op_func(av[2]);
 	result = res(i, j);
 	printf("%d\n", result);
