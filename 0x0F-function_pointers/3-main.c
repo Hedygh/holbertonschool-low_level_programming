@@ -10,7 +10,7 @@
 int main(int ac, char **av)
 {
 	int (*res)(int, int);
-	int result, i, j, c;
+	int i, j, c;
 
 	if (ac != 4)
 	{
@@ -31,13 +31,9 @@ int main(int ac, char **av)
 	switch (c)
 	{
 		case '+':
-			break;
 		case '-':
-			break;
 		case '/':
-			break;
 		case '*':
-			break;
 		case '%':
 			break;
 		default:
