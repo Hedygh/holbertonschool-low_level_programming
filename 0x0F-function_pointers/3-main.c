@@ -21,7 +21,7 @@ int main(int ac, char **av)
 	}
 	i = atoi(av[1]);
 	j = atoi(av[3]);
-	if ((j == 0) && (av[2][0] == '/' || av[2][0] == '%'))
+	if ((j == 0 || i == 0) && (av[2][0] == '/' || av[2][0] == '%'))
 	{
 		printf("Error\n");
 		exit(100);
