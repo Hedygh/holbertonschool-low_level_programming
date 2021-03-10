@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include "3-calc.h"
 #include <stdio.h>
+#include <string.h>
 /**
  * main - calc result of arg op
  * @ac: number of arg
