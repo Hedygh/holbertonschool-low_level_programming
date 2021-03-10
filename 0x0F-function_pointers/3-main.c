@@ -9,10 +9,8 @@
  */
 int main(int ac, char **av)
 {
-	int result;
-	int i;
-	int j;
 	int (*res)(int, int);
+	int result, i, j, c;
 
 	if (ac != 4)
 	{
@@ -24,16 +22,31 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(100);
 	}
-	if (av[2][0] != '%' && av[2][0] != '+' && av[2][0] != '/' &&
-			av[2][0] != '-' && av[2][0] != '*')
+	if (strlen(av[2]) > 1)
 	{
 		printf("Error\n");
 		exit(99);
 	}
+	c = av[2][0];
+	switch (c)
+	{
+		case '+':
+			break;
+		case '-':
+			break;
+		case '/':
+			break;
+		case '*':
+			break;
+		case '%':
+			break;
+		default:
+			printf("Error\n");
+			exit(99);
+	}
 	j = atoi(av[3]);
 	i = atoi(av[1]);
 	res = get_op_func(av[2]);
-	result = res(i, j);
-	printf("%d\n", result);
+	printf("%d\n", res(i, j);
 	return (0);
 }
