@@ -10,8 +10,8 @@
 int main(int ac, char **av)
 {
 	int result;
-	int i = atoi(av[1]);
-	int j = atoi(av[3]);
+	int i;
+	int j;
 	int (*res)(int, int);
 
 	if (ac != 4)
@@ -19,7 +19,8 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(98);
 	}
-
+	i = atoi(av[1]);
+	j = atoi(av[2]);
 	if ((j == 0) && (av[2][0] == '/' || av[2][0] == '%'))
 	{
 		printf("Error\n");
