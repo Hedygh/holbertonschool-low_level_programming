@@ -18,11 +18,6 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(98);
 	}
-	if ((av[3][0] == '0') && (av[2][0] == '/' || av[2][0] == '%'))
-	{
-		printf("Error\n");
-		exit(100);
-	}
 	if (strlen(av[2]) != 1)
 	{
 		printf("Error\n");

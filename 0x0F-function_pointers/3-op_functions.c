@@ -1,3 +1,5 @@
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * op_add - result of addition
  * @a: int for ope
@@ -42,9 +44,12 @@ int op_mul(int a, int b)
  */
 int op_div(int a, int b)
 {
-	int res = a / b;
-
-	return (res);
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	return (a / b);
 }
 /**
  * op_mod - result of modulo
@@ -54,7 +59,10 @@ int op_div(int a, int b)
  */
 int op_mod(int a, int b)
 {
-	int res = a % b;
-
-	return (res);
+	if (b == 0)
+	{
+		printf("Error\n");
+		exit(100);
+	}
+	return (a % b);
 }
