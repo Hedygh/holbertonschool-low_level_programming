@@ -1,5 +1,7 @@
 #include "3-calc.h"
 #include <stddef.h>
+#include <stdio.h>
+#include <stdlib.h>
 /**
  * get_op_func - find the op
  * @s: string to check
@@ -20,9 +22,10 @@ int (*get_op_func(char *s))(int, int)
 	i = 0;
 	while (i < 6)
 	{
-		if (ops[i].op[0] == *s)
+		if (ops[i].op[0] == s[0])
 			return (ops[i].f);
 		i++;
 	}
-	return (0);
+	printf("Error\n");
+	exit(99);
 }
