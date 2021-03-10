@@ -19,9 +19,8 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(98);
 	}
-	i = atoi(av[1]);
-	j = atoi(av[3]);
-	if ((j == 0 || i == 0) && (av[2][0] == '/' || av[2][0] == '%'))
+	if ((av[1][0] == '0' || av[3][0] == '0') &&
+			(av[2][0] == '/' || av[2][0] == '%'))
 	{
 		printf("Error\n");
 		exit(100);
@@ -32,6 +31,8 @@ int main(int ac, char **av)
 		printf("Error\n");
 		exit(99);
 	}
+	j = atoi(av[3]);
+	i = atoi(av[1]);
 	res = get_op_func(av[2]);
 	result = res(i, j);
 	printf("%d\n", result);
