@@ -74,11 +74,11 @@ void print_all(const char * const format, ...)
 			{
 				printf("%s", str);
 				t[j].f(ap);
+				str = ", ";
 				break;
 			}
 			j++;
 		}
-		str = ", ";
 		i++;
 	}
 	printf("\n");
