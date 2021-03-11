@@ -53,20 +53,20 @@ void print_s(va_list ap)
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i;
-	unsigned int j;
+	int i;
+	int j;
 	va_list ap;
-	char *str = "\0";
+	char *str = "";
 	ty t[] = {
 		{"c", print_c},
 		{"i", print_i},
 		{"f", print_f},
 		{"s", print_s},
 	};
+	i = 0;
 	va_start(ap, format);
 
-	i = 0;
-	while (format[i] && format)
+	while (format[i])
 	{
 		j = 0;
 		while (j < 4)
@@ -74,8 +74,8 @@ void print_all(const char * const format, ...)
 			if (format[i] == t[j].s[0])
 			{
 				printf("%s", str);
-				t[j].f(ap);
 				str = ", ";
+				t[j].f(ap);
 				break;
 			}
 			j++;
