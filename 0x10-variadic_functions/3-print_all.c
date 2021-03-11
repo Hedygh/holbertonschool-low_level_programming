@@ -3,7 +3,7 @@
 #include "variadic_functions.h"
 /**
  * print_c - print arg
- * @ap2: list of arg
+ * @ap: list of arg
  * Return : None
  */
 
@@ -13,7 +13,7 @@ void print_c(va_list ap)
 }
 /**
  * print_i - print arg
- * @ap2: list of arg
+ * @ap: list of arg
  * Return : None
  */
 void print_i(va_list ap)
@@ -22,7 +22,7 @@ void print_i(va_list ap)
 }
 /**
  * print_f - print arg
- * @ap2: list of arg
+ * @ap: list of arg
  * Return : None
  */
 
@@ -32,7 +32,7 @@ void print_f(va_list ap)
 }
 /**
  * print_s - print arg
- * @ap2: list of arg
+ * @ap: list of arg
  * Return : None
  */
 void print_s(va_list ap)
