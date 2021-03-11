@@ -54,8 +54,8 @@ void print_s(va_list ap2)
 void print_all(const char * const format, ...)
 {
 	va_list ap;
-	int i;
-	int j;
+	unsigned int i;
+	unsigned int j;
 	char *str = "";
 	ty t[] = {
 		{"c", print_c},
