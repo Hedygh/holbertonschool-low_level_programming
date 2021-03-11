@@ -53,8 +53,8 @@ void print_s(va_list ap)
  */
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	int j = 0;
+	unsigned int i;
+	unsigned int j;
 	va_list ap;
 	char *str = "\0";
 	ty t[] = {
@@ -65,6 +65,7 @@ void print_all(const char * const format, ...)
 	};
 	va_start(ap, format);
 
+	i = 0;
 	while (format[i] && format)
 	{
 		j = 0;
