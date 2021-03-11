@@ -56,7 +56,7 @@ void print_all(const char * const format, ...)
 	int i = 0;
 	int j = 0;
 	va_list ap;
-	char *str = "";
+	char *str = "\0";
 	ty t[] = {
 		{"c", print_c},
 		{"i", print_i},
