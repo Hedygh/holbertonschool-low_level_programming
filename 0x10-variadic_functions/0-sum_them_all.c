@@ -8,7 +8,7 @@
 int sum_them_all(const unsigned int n, ...)
 {
 	va_list ap;
-	int i = 0;
+	unsigned int i = 0;
 	int res = 0;
 
 	va_start(ap, n);
