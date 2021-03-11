@@ -3,41 +3,41 @@
 #include "variadic_functions.h"
 /**
  * print_c - print arg
- * @ap: list of arg
+ * @ap2: list of arg
  * Return : None
  */
 
-void print_c(va_list ap)
+void print_c(va_list ap2)
 {
-	printf("%c", va_arg(ap, int));
+	printf("%c", va_arg(ap2, int));
 }
 /**
  * print_i - print arg
- * @ap: list of arg
+ * @ap2: list of arg
  * Return : None
  */
-void print_i(va_list ap)
+void print_i(va_list ap2)
 {
-	printf("%d", va_arg(ap, int));
+	printf("%d", va_arg(ap2, int));
 }
 /**
  * print_f - print arg
- * @ap: list of arg
+ * @ap2: list of arg
  * Return : None
  */
 
-void print_f(va_list ap)
+void print_f(va_list ap2)
 {
-	printf("%f", va_arg(ap, double));
+	printf("%f", va_arg(ap2, double));
 }
 /**
  * print_s - print arg
- * @ap: list of arg
+ * @ap2: list of arg
  * Return : None
  */
-void print_s(va_list ap)
+void print_s(va_list ap2)
 {
-	char *str = va_arg(ap, char*);
+	char *str = va_arg(ap2, char*);
 
 	if (!str)
 	{
@@ -53,9 +53,9 @@ void print_s(va_list ap)
  */
 void print_all(const char * const format, ...)
 {
-	int i;
-	int j;
 	va_list ap;
+	unsigned int i;
+	unsigned int j;
 	char *str = "";
 	ty t[] = {
 		{"c", print_c},
@@ -66,7 +66,7 @@ void print_all(const char * const format, ...)
 	i = 0;
 	va_start(ap, format);
 
-	while (format[i])
+	while (format && format[i])
 	{
 		j = 0;
 		while (j < 4)
