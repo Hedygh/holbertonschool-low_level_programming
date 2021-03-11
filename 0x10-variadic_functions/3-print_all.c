@@ -7,18 +7,18 @@
  * Return : None
  */
 
-void print_c(va_list ap2)
+void print_c(va_list ap)
 {
-	printf("%c", va_arg(ap2, int));
+	printf("%c", va_arg(ap, int));
 }
 /**
  * print_i - print arg
  * @ap2: list of arg
  * Return : None
  */
-void print_i(va_list ap2)
+void print_i(va_list ap)
 {
-	printf("%d", va_arg(ap2, int));
+	printf("%d", va_arg(ap, int));
 }
 /**
  * print_f - print arg
@@ -26,18 +26,18 @@ void print_i(va_list ap2)
  * Return : None
  */
 
-void print_f(va_list ap2)
+void print_f(va_list ap)
 {
-	printf("%f", va_arg(ap2, double));
+	printf("%f", va_arg(ap, double));
 }
 /**
  * print_s - print arg
  * @ap2: list of arg
  * Return : None
  */
-void print_s(va_list ap2)
+void print_s(va_list ap)
 {
-	char *str = va_arg(ap2, char*);
+	char *str = va_arg(ap, char*);
 
 	if (!str)
 	{
