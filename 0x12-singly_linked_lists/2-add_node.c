@@ -24,7 +24,7 @@ int _strlen(char *str)
 list_t *add_node(list_t **head, const char *str)
 {
 	list_t *newnode;
-	
+
 	if (head == NULL)
 		return (NULL);
 	newnode = malloc(sizeof(list_t));
@@ -35,4 +35,3 @@ list_t *add_node(list_t **head, const char *str)
 	newnode->next = (*head);
 	(*head) = newnode;
 	return (newnode);
-}
