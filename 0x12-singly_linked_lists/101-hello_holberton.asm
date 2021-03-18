@@ -1,11 +1,11 @@
 section .rodata
-format: db 'Hello, %s', 10, 0
-name: db 'Holberton', 0
+	format: db 'Hello, %s', 10, 0
+	name: db 'Holberton', 0
+
 section .text
-global main
-extern printf
+	global main
+	extern printf
 main:
-push rbp
 mov rdi, format
 mov rsi, message
 mov rax, 0
