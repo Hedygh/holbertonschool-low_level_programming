@@ -7,7 +7,7 @@ section .text
 	extern printf
 main:
 mov rdi, format
-mov rsi, message
+mov rsi, name
 mov rax, 0
 call printf
 mov rax, 0
