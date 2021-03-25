@@ -4,7 +4,7 @@
  * @res: number to check
  * Return: result of check
  */
-unsigned int count_bit(unsigned int res)
+int count_bit(int res)
 {
 	if (res <= 0)
 		return (0);
@@ -21,7 +21,7 @@ unsigned int count_bit(unsigned int res)
  */
 unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
-	unsigned int res = 0;
+	int res;
 
 	res = n ^ m;
 
