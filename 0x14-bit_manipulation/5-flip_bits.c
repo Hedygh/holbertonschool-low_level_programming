@@ -4,7 +4,7 @@
  * @res: number to check
  * Return: result of check
  */
-int count_bit(int res)
+int count_bit(unsigned long int res)
 {
 	if (res <= 0)
 		return (0);
