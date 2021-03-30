@@ -25,7 +25,7 @@ void cpy_ffrom_fto(const char *from, char *to)
 
 	fd_from = open(from, O_RDONLY);
 	if (fd_from == -1)
-		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", from),
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from),
 			exit(98);
 	fd_to = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
