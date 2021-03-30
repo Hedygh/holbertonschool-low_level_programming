@@ -10,7 +10,7 @@
  */
 void closefile(int fd)
 {
-	dprintf(2, "Error: Can't close fd %d\n", fd);
+	dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
 	exit(100);
 }
 /**
@@ -25,7 +25,7 @@ void cpy_ffrom_fto(char *from, char *to)
 
 	fd_from = open(from, O_RDONLY);
 	if (fd_from == -1)
-		dprintf(2, "Error: Can't read from %s\n", from),
+		dprintf(STDERR_FILENO, "Error: Can't read from %s\n", from),
 			exit(98);
 	fd_to = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
@@ -33,20 +33,20 @@ void cpy_ffrom_fto(char *from, char *to)
 			exit(98);
 	rf = read(fd_from, buff, 1024);
 	if (rf == -1)
-		dprintf(2, "Error: Can't read from file %s\n", from),
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from),
 			exit(98);
 	while (rf > 0)
 	{
 		wt = write(fd_to, buff, rf);
 		if (wt == -1)
 		{
-			dprintf(2, "Error: Can't write to %s\n", to);
+			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
 			exit(99);
 		}
 		rf = read(fd_from, buff, 1024);
 		if (rf == -1)
 		{
-			dprintf(2, "Error: Can't read from file %s\n", from);
+			dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
 			exit(98);
 		}
 	}
@@ -67,17 +67,17 @@ int main(int ac, char **av)
 {
 	if (ac != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 	if (av[1] == NULL)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", av[1]);
+		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
 	}
 	if (av[2] == NULL)
 	{
-		dprintf(2, "Error: Can't write to %s\n", av[2]);
+		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 	cpy_ffrom_fto(av[1], av[2]);
