@@ -10,8 +10,8 @@
  */
 void closefile(int fd)
 {
-		dprintf(2, "Error: Can't close fd %d\n", fd);
-		exit(100);
+	dprintf(2, "Error: Can't close fd %d\n", fd);
+	exit(100);
 }
 /**
  * cpy_ffrom_fto - open and close file from and file to
@@ -34,7 +34,7 @@ void cpy_ffrom_fto(char *from, char *to)
 	rf = read(fd_from, buff, 1024);
 	if (rf == -1)
 		dprintf(2, "Error: Can't read from file %s\n", from),
-		exit(98);
+			exit(98);
 	while (rf > 0)
 	{
 		wt = write(fd_to, buff, rf);
@@ -74,6 +74,11 @@ int main(int ac, char **av)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", av[1]);
 		exit(98);
+	}
+	if (av[2] == NULL)
+	{
+		dprintf(2, "Error: Can't write to %s\n", to);
+		exit(99);
 	}
 	cpy_ffrom_fto(av[1], av[2]);
 	return (0);
