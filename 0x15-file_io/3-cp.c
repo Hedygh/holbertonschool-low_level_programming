@@ -18,7 +18,7 @@ void closefile(int fd)
  * @from: file from name
  * @to: file to name
  */
-void cpy_ffrom_fto(char *from, char *to)
+void cpy_ffrom_fto(const char *from, char *to)
 {
 	int fd_from, fd_to, rf, wt, cl;
 	char buff[1024];
