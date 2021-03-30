@@ -35,7 +35,7 @@ void cpy_ffrom_fto(char *from, char *to)
 	if (rf == -1)
 		dprintf(2, "Error: Can't read from file %s\n", from),
 		exit(98);
-	while (rf != 0)
+	while (rf > 0)
 	{
 		wt = write(fd_to, buff, rf);
 		if (wt == -1)
