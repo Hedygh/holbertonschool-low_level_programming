@@ -41,7 +41,7 @@ void cpy_ffrom_fto(const char *from, char *to)
 		if (wt == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
-			exit(99);
+			exit(98);
 		}
 		rf = read(fd_from, buff, 1024);
 		if (rf == -1)
