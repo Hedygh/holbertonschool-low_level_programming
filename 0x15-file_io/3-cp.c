@@ -11,7 +11,7 @@
  */
 void cpy_ffrom_fto(char *from, char *to)
 {
-	int fd_from, fd_to, clf, clt, rf, wf;
+	int fd_from, fd_to, clf, clt, rf, wt;
 	char buff[1024];
 
 	fd_from = open(from, O_RDONLY);
@@ -32,8 +32,8 @@ void cpy_ffrom_fto(char *from, char *to)
 		dprintf(2, "Error: Can't read from file %s\n", from);
 		exit(98);
 	}
-	wf = write(fd_to, buff, rf);
-	if (wf == -1)
+	wt = write(fd_to, buff, rf);
+	if (wt == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", to);
 		exit(99);
@@ -41,13 +41,13 @@ void cpy_ffrom_fto(char *from, char *to)
 	clf = close(fd_from);
 	if (clf == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_from);
+		dprintf(2, "Error: Can't close fd %d\n", errno);
 		exit(100);
 	}
 	clt = close(fd_to);
 	if (clt == -1)
 	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_to);
+		dprintf(2, "Error: Can't close fd %d\n", errno);
 		exit(100);
 	}
 }
