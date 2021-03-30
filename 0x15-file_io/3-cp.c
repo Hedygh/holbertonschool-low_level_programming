@@ -77,7 +77,7 @@ int main(int ac, char **av)
 	}
 	if (av[2] == NULL)
 	{
-		dprintf(2, "Error: Can't write to %s\n", to);
+		dprintf(2, "Error: Can't write to %s\n", av[2]);
 		exit(99);
 	}
 	cpy_ffrom_fto(av[1], av[2]);
