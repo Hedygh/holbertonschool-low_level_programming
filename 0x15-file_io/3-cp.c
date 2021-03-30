@@ -20,16 +20,16 @@ void cpy_ffrom_fto(char *from, char *to)
 		dprintf(2, "Error: Can't read from %s\n", from);
 		exit(98);
 	}
-	rf = read(fd_from, buff, 1024);
-	if (rf == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", from);
-		exit(98);
-	}
 	fd_to = open(to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd_to == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", to);
+		exit(98);
+	}
+	rf = read(fd_from, buff, 1024);
+	if (rf == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", from);
 		exit(98);
 	}
 	wf = write(fd_to, buff, rf);
@@ -64,7 +64,7 @@ int main(int ac, char **av)
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
-	if (!av[1])
+	if (av[1] == NULL)
 	{
 		dprintf(2, "Error: Can't read from file %s \n", av[1]);
 		exit(98);
