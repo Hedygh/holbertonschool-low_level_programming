@@ -32,14 +32,11 @@ void cpy_ffrom_fto(char *from, char *to)
 		dprintf(2, "Error: Can't read from file %s\n", from);
 		exit(98);
 	}
-	while (rf != 0)
+	wt = write(fd_to, buff, rf);
+	if (wt == -1)
 	{
-		wt = write(fd_to, buff, rf);
-		if (wt == -1)
-		{
-			dprintf(2, "Error: Can't write to %s\n", to);
-			exit(99);
-		}
+		dprintf(2, "Error: Can't write to %s\n", to);
+		exit(99);
 	}
 	cl = close(fd_from);
 	if (cl == -1)
