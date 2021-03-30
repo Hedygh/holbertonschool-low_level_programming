@@ -46,12 +46,12 @@ void cpy_ffrom_fto(char *from, char *to)
 	int clt;
 
 	fd_from = open(from, O_RDONLY);
-	fd_to = open(to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd_from == -1)
 	{
 		dprintf(2, "Error: Can't read from %s\n", from);
 		exit(98);
 	}
+	fd_to = open(to, O_CREAT | O_TRUNC | O_WRONLY, 0664);
 	if (fd_to == -1)
 	{
 		dprintf(2, "Error: Can't write to %s\n", to);
@@ -59,12 +59,12 @@ void cpy_ffrom_fto(char *from, char *to)
 	}
 	read_and_write_ff_fto(from, to, fd_from, fd_to, buff);
 	clf = close(fd_from);
-	clt = close(fd_to);
 	if (clf == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd_from);
 		exit(100);
 	}
+	clt = close(fd_to);
 	if (clt == -1)
 	{
 		dprintf(2, "Error: Can't close fd %d\n", fd_to);
