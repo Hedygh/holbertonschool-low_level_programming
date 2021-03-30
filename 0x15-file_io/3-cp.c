@@ -5,6 +5,21 @@
 #include <fcntl.h>
 #include <unistd.h>
 /**
+ * closefile - close opened file
+ * @fd: file descriptor
+ */
+void closefile(int fd)
+{
+	int cl;
+
+	cl = close(fd);
+	if (cl == -1)
+	{
+		dprintf(2, "Error: Can't close fd %d\n", fd);
+		exit(100);
+	}
+}
+/**
  * cpy_ffrom_fto - open and close file from and file to
  * @from: file from name
  * @to: file to name
@@ -36,19 +51,15 @@ void cpy_ffrom_fto(char *from, char *to)
 			dprintf(2, "Error: Can't write to %s\n", to);
 			exit(99);
 		}
+		rf = read(fd_from, buff, 1024);
+		if (rf == -1)
+		{
+			dprintf(2, "Error: Can't read from file %s\n", from);
+			exit(98);
+		}
 	}
-	cl = close(fd_from);
-	if (cl == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_from);
-		exit(100);
-	}
-	cl = close(fd_to);
-	if (cl == -1)
-	{
-		dprintf(2, "Error: Can't close fd %d\n", fd_to);
-		exit(100);
-	}
+	closefile(fd_from);
+	closefile(fd_to);
 }
 /**
  * main - call for function to copy file content to another
