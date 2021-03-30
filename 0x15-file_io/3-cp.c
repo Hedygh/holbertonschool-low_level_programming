@@ -10,14 +10,8 @@
  */
 void closefile(int fd)
 {
-	int cl;
-
-	cl = close(fd);
-	if (cl == -1)
-	{
 		dprintf(2, "Error: Can't close fd %d\n", fd);
 		exit(100);
-	}
 }
 /**
  * cpy_ffrom_fto - open and close file from and file to
@@ -26,7 +20,7 @@ void closefile(int fd)
  */
 void cpy_ffrom_fto(char *from, char *to)
 {
-	int fd_from, fd_to, cl, rf, wt;
+	int fd_from, fd_to, rf, wt, cl;
 	char buff[1024];
 
 	fd_from = open(from, O_RDONLY);
@@ -39,10 +33,8 @@ void cpy_ffrom_fto(char *from, char *to)
 			exit(98);
 	rf = read(fd_from, buff, 1024);
 	if (rf == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", from);
+		dprintf(2, "Error: Can't read from file %s\n", from),
 		exit(98);
-	}
 	while (rf != 0)
 	{
 		wt = write(fd_to, buff, rf);
@@ -58,8 +50,12 @@ void cpy_ffrom_fto(char *from, char *to)
 			exit(98);
 		}
 	}
-	closefile(fd_from);
-	closefile(fd_to);
+	cl = close(fd_from);
+	if (cl == -1)
+		closefile(fd_from);
+	cl = close(fd_to);
+	if (cl == -1)
+		closefile(fd_to);
 }
 /**
  * main - call for function to copy file content to another
