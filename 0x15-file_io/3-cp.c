@@ -30,7 +30,7 @@ void cpy_ffrom_fto(const char *from, char *to)
 	fd_to = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_to == -1)
 		dprintf(2, "Error: Can't write to %s\n", to),
-			exit(99);
+			exit(98);
 	rf = read(fd_from, buff, 1024);
 	if (rf == -1)
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from),
@@ -41,7 +41,7 @@ void cpy_ffrom_fto(const char *from, char *to)
 		if (wt == -1)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
-			exit(98);
+			exit(99);
 		}
 		rf = read(fd_from, buff, 1024);
 		if (rf == -1)
