@@ -5,45 +5,14 @@
 #include <fcntl.h>
 #include <unistd.h>
 /**
- * read_and_write_ff_fto - read file from and write to file to
- * @from: file from name
- * @to: file to name
- * @ff: open value of file from
- * @ft: open value of file to
- * @buff: buffer
- */
-void read_and_write_ff_fto(char *from, char *to, int ff, int ft, char *buff)
-{
-	int rf;
-	int rt;
-	int wf;
-
-	rf = read(ff, buff, 1024);
-	if (rf == -1)
-	{
-		dprintf(2, "Error: Can't read from file %s\n", from);
-		exit(98);
-	}
-	wf = write(ft, buff, rf);
-	if (wf == -1)
-	{
-		dprintf(2, "Error: Can't write to %s\n", to);
-		exit(99);
-	}
-
-}
-/**
  * cpy_ffrom_fto - open and close file from and file to
  * @from: file from name
  * @to: file to name
  */
 void cpy_ffrom_fto(char *from, char *to)
 {
-	int fd_from;
-	int fd_to;
+	int fd_from, fd_to, clf, clt, rf, wf;
 	char buff[1024];
-	int clf;
-	int clt;
 
 	fd_from = open(from, O_RDONLY);
 	if (fd_from == -1)
@@ -57,7 +26,18 @@ void cpy_ffrom_fto(char *from, char *to)
 		dprintf(2, "Error: Can't write to %s\n", to);
 		exit(98);
 	}
-	read_and_write_ff_fto(from, to, fd_from, fd_to, buff);
+	rf = read(fd_from, buff, 1024);
+	if (rf == -1)
+	{
+		dprintf(2, "Error: Can't read from file %s\n", from);
+		exit(98);
+	}
+	wf = write(fd_to, buff, rf);
+	if (wf == -1)
+	{
+		dprintf(2, "Error: Can't write to %s\n", to);
+		exit(99);
+	}
 	clf = close(fd_from);
 	if (clf == -1)
 	{
