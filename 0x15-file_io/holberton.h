@@ -4,6 +4,6 @@ ssize_t read_textfile(const char *filename, size_t letters);
 int create_file(const char *filename, char *text_content);
 int _strlen(char *str);
 int append_text_to_file(const char *filename, char *text_content);
-void cpy_ffrom_fto(char *from, char *to);
+void cpy_ffrom_fto(const char *from, char *to);
 void closefile(int fd);
 #endif
