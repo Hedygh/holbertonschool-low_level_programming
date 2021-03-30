@@ -52,10 +52,10 @@ void cpy_ffrom_fto(const char *from, char *to)
 	}
 	cl = close(fd_from);
 	if (cl == -1)
-		closefile(fd_from);
+		closefile(cl);
 	cl = close(fd_to);
 	if (cl == -1)
-		closefile(fd_to);
+		closefile(cl);
 }
 /**
  * main - call for function to copy file content to another
