@@ -2,7 +2,7 @@
 /**
  * key_index - return index of key
  * @key: keys
- * @size of the array
+ * @size: of the array
  * Return: key's index
  */
 unsigned long int key_index(const unsigned char *key, unsigned long int size)
