@@ -32,5 +32,6 @@ int main(void)
 		i--;
 	}
 	print_num_recursive(sum);
+	_putchar('\n');
 	return (0);
 }
