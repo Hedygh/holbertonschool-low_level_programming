@@ -10,20 +10,35 @@
 int main(void)
 {
 	int i = 0;
-	long int x = 0;
-	long int j = 1;
-	long int res;
+	const unsigned long m = 1000000000UL;
+	unsigned long a = 0;
+	unsigned long x = 0;
+	unsigned long b = 0;
+	unsigned long j = 1;
+	unsigned long c;
+	unsigned long res;
 
 	while (i < 98)
 	{
 		res = x + j;
-		printf("%ld", res);
-		if (i < 98)
+		c = a + b;
+		if (res >= m)
+		{
+			res -= m;
+			c += 1;
+		}
+		if (c == 0)
+			printf("%lu", res);
+		else
+			printf("%lu%09lu", c, res);
+		if (i != 97)
 		{
 			putchar(',');
 			putchar(' ');
 		}
+		a = b;
 		x = j;
+		b = c;
 		j = res;
 		i++;
 	}
