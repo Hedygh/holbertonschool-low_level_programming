@@ -3,7 +3,7 @@
 /**
  * print_numbers - print num 0 to 9
  *
- * Return: void 
+ * Return: void
  */
 void print_numbers(void)
 {
@@ -12,5 +12,4 @@ void print_numbers(void)
 	while (i <= '9')
 		_putchar(i++);
 	_putchar('\n');
-	return;
 }
