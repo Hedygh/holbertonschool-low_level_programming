@@ -10,11 +10,6 @@ void print_number(int n)
 	int x;
 
 	x = n;
-	if (n < 0)
-	{
-		_putchar('-');
-		x = -n;
-	}
 	if (x <= 9)
 		_putchar(x + '0');
 	if (x >= 10)
