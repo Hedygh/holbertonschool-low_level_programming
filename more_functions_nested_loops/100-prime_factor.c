@@ -13,7 +13,8 @@ int main(void)
 	while (m > 1)
 	{
 		i++;
-		while (m % i == 0)
+		while (m % i == 0) // tant que divisible par un facteur 
+				   // on divise pour exclure le facteur (100/50/25%2==1)
 		{
 			m = m / i;
 		}
