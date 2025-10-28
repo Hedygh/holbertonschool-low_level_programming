@@ -18,6 +18,6 @@ int main(void)
 			m = m / i;
 		}
 	}
-	printf("%ld", i);
+	printf("%ld\n", i);
 	return (0);
 }
