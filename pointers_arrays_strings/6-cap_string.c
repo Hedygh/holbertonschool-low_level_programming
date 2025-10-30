@@ -14,7 +14,7 @@ char *cap_string(char *str)
 	while (str[i])
 	{
 		while ((str[i] >= 32 && str[i] <= 47) ||
-				(str[i] >= 123 && str[i] <= 127))
+				(str[i] >= 123 && str[i] < 127))
 			i++;
 		if ((str[i] >= 'a' && str[i] <= 'z') 
 				&& (!(str[i - 1] >= 'A') && (str[i - 1] <= 'Z')) &&
