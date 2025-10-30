@@ -3,7 +3,7 @@
 /**
  * reverse_array - reverse an array of int
  * @a: point to array
- * n: number of elements
+ * @n: number of elements
  * Return: none
  */
 
