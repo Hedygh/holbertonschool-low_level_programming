@@ -13,8 +13,9 @@ int main(int ac, char **av)
 {
 	int sum = 0;
 
-	if (ac < 2)
+	if (ac < 3)
 	{
+		(void)av;
 		(void)sum;
 		printf("Error\n");
 		return (1);
