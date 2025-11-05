@@ -15,6 +15,7 @@ int main(int ac, char **av)
 
 	if (ac < 2)
 	{
+		(void)sum;
 		printf("Error\n");
 		return (1);
 	}
