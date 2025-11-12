@@ -31,13 +31,13 @@ char *str_concat(char *s1, char *s2)
 	int j = 0;
 	char *dest;
 
-	if (!s1 || !s2)
-		return (0);
+	if (!s1 && !s2)
+		return (NULL);
 	if (s1 == 0)
 		s1 = "";
 	if (s2 == 0)
 		s2 = "";
-	dest = malloc(sizeof(char) * (_strlen(s1) + _strlen(s2)) + 1);
+	dest = malloc((sizeof(char) * (_strlen(s1) + _strlen(s2))) + 1);
 	if (!dest)
 		return (0);
 	while (s1[i])
