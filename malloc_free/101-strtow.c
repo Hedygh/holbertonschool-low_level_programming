@@ -100,6 +100,6 @@ char **strtow(char *str)
 		j += num;
 		i++;
 	}
-	dest[i] = 0;
+	dest[i] = NULL;
 	return (dest);
 }
