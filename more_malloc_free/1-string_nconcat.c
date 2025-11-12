@@ -30,7 +30,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
 	unsigned int i = 0;
 	unsigned int j = 0;
-	int lgt;
+	unsigned int lgt;
 	unsigned int dif;
 	char *str;
 
@@ -41,6 +41,8 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		lgt -= dif;
 	}
 	str = malloc(sizeof(char) * lgt + 1);
+	if (!str)
+		return (0);
 
 	while (s1[i])
 	{
