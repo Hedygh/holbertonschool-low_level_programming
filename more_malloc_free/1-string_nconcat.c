@@ -34,6 +34,11 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	unsigned int dif;
 	char *str;
 
+	if (s1 == 0)
+		s1 = "";
+	if (s2 == 0)
+		s2 = "";
+
 	lgt = _strlen(s1) + _strlen(s2);
 	if (n < _strlen(s2))
 	{
