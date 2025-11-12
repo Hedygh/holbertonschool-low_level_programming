@@ -8,3 +8,7 @@ char *_strcat(char *dest, char *src);
 char *_strncat(char *dest, char *src, int n);
 int _strlen(char *s);
 char *argstostr(int ac, char **av);
+char **strtow(char *str);
+int _chsp(char *str, int n);
+int _cw(char *str);
+char *_strndup(char *str, int n);
