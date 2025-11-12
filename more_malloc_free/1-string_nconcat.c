@@ -1,12 +1,10 @@
-#include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * _strlen - lenght of string
- * @s: lenght
- *
- * Return: lenght of string
+ * _strlen - len
+ * @s: s
+ * Return: lenght
  */
 
 int _strlen(char *s)
@@ -19,45 +17,46 @@ int _strlen(char *s)
 }
 
 /**
- * string_nconcat - concatenate 2 strings to n lenghts of s2
- * @s1: base s
- * @s2: string to concatenate
- * @n: n char to concatenate
- * Return: new string
+ * string_nconcat - concatenate s1 with first n bytes of s2
+ * @s1: base string (treated as "" if NULL)
+ * @s2: string to take from (treated as "" if NULL)
+ * @n:  number of bytes to take from s2
+ * Return: newly allocated "s1 + first n of s2" (NULL on failure)
  */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	unsigned int i = 0;
-	unsigned int j = 0;
+	unsigned int i;
+	unsigned int j;
 	unsigned int lgt;
 	unsigned int dif;
+	int len1;
+	int len2;
 	char *str;
 
-	if (s1 == 0)
-		s1 = "";
-	if (s2 == 0)
-		s2 = "";
+	i = 0;
+	j = 0;
+	dif = 0;
 
-	lgt = _strlen(s1) + _strlen(s2);
-	if (n < _strlen(s2))
+	if (s1 == NULL)
+		s1 = "";
+	if (s2 == NULL)
+		s2 = "";
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
+	lgt = (unsigned int)(len1 + len2);
+	if (n < (unsigned int)len2)
 	{
-		dif = _strlen(s2) - n;
+		dif = (unsigned int)len2 - n;
 		lgt -= dif;
 	}
-	str = malloc((sizeof(char) * lgt) + 1);
-	if (!str)
-		return (0);
-
-	while (s1[i])
+	str = (char *)malloc(lgt + 1);
+	if (str == NULL)
+		return (NULL);
+	while (i < (unsigned int)len1)
 	{
 		str[i] = s1[i];
 		i++;
-	}
-	if (n == 0)
-	{
-		str[i] = '\0';
-		return (str);
 	}
 	while (s2[j] && j < n)
 	{
