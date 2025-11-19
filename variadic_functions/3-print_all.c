@@ -6,9 +6,9 @@
  * @ap: ptr to list
  * Return: void
  */
-void print_char(va_list *ap)
+void print_char(va_list ap)
 {
-	printf("%c", va_arg(*ap, int));
+	printf("%c", va_arg(ap, int));
 }
 
 /**
@@ -16,9 +16,9 @@ void print_char(va_list *ap)
  * @ap: ptr to list
  * Return: void
  */
-void print_int(va_list *ap)
+void print_int(va_list ap)
 {
-	printf("%d", va_arg(*ap, int));
+	printf("%d", va_arg(ap, int));
 }
 
 /**
@@ -26,9 +26,9 @@ void print_int(va_list *ap)
  * @ap: ptr to list
  * Return: void
  */
-void print_float(va_list *ap)
+void print_float(va_list ap)
 {
-	printf("%f", va_arg(*ap, double));
+	printf("%f", va_arg(ap, double));
 }
 
 /**
@@ -36,17 +36,16 @@ void print_float(va_list *ap)
  * @ap: ptr
  * Return: void
  */
-void print_string(va_list *ap)
+void print_string(va_list ap)
 {
-	char *s = va_arg(*ap, char *);
+	char *s = va_arg(ap, char*);
 
 	if (!s)
 	{
 		printf("(nil)");
 		return;
 	}
-	else
-		printf("%s", s);
+	printf("%s", s);
 }
 /**
  * print_all - print all types of args
@@ -58,8 +57,7 @@ void print_string(va_list *ap)
 
 void print_all(const char * const format, ...)
 {
-	int i = 0;
-	int j = 0;
+	int i, j;
 	va_list ap;
 	char *sep = "";
 
@@ -68,26 +66,25 @@ void print_all(const char * const format, ...)
 		{"i", print_int},
 		{"f", print_float},
 		{"s", print_string},
-		{NULL, NULL}
 	};
+	i = 0;
 	va_start(ap, format);
-
 	while (format[i] && format)
 	{
 		j = 0;
-		while (array[j].s)
+		while (j < 4)
 		{
 			if (format[i] == array[j].s[0])
 			{
 				printf("%s", sep);
-				array[j].f(&ap);
 				sep = ", ";
+				array[j].f(ap);
 				break;
 			}
 			j++;
 		}
 		i++;
 	}
-	va_end(ap);
 	printf("\n");
+	va_end(ap);
 }
