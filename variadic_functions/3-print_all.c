@@ -70,24 +70,21 @@ void print_all(const char * const format, ...)
 	};
 	va_start(ap, format);
 
-	if (format)
+	while (format[i] && format)
 	{
-		while (format[i])
+		j = 0;
+		while (array[j].s)
 		{
-			j = 0;
-			while (array[j].s)
+			if (format[i] == array[j].s[0])
 			{
-				if (format[i] == array[j].s[0])
-				{
-					printf("%s", sep);
-					array[j].f(&ap);
-					sep = ", ";
-					break;
-				}
-				j++;
+				printf("%s", sep);
+				array[j].f(&ap);
+				sep = ", ";
+				break;
 			}
-			i++;
+			j++;
 		}
+		i++;
 	}
 	va_end(ap);
 	printf("\n");
