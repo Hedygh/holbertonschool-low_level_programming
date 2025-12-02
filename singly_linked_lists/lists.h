@@ -8,7 +8,7 @@
 /**
  * struct list_l - basic struct for single linked list
  * @str: data string
- * @n: size
+ * @len: size
  * @next: point to next node
  */
 typedef struct list_l
