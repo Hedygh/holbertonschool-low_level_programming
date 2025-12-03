@@ -13,8 +13,8 @@
 typedef struct dlistint_l
 {
 	int n;
-	struct dlist_l *prev;
-	struct dlist_l *next;
+	struct dlistint_l *prev;
+	struct dlistint_l *next;
 } dlistint_t;
 
 size_t print_dlistint(const dlistint_t *h);
