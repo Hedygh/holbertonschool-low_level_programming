@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
+#include <stddef.h>
 /**
  * struct dlistint_l - struct of a doubly linked list
  * @n: int data of nodes
