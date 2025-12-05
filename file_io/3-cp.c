@@ -21,51 +21,39 @@ void copy_fromf_tof(const char *from, const char *to)
 	int fd_src, fd_dst, rlen, wlen;
 	char buff[1024];
 
-	/* open source file in read-only mode */
 	fd_src = open(from, O_RDONLY);
 	if (fd_src == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
 		exit(98);
 	}
-
-	/* open/create destination file in write-only, truncate if exists */
 	fd_dst = open(to, O_WRONLY | O_CREAT | O_TRUNC, 0664);
 	if (fd_dst == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
-		close(fd_src); /* pas obligatoire, mais propre */
+		close(fd_src);
 		exit(99);
 	}
-
-	/* loop: read chunks from source and write them to dest */
 	while ((rlen = read(fd_src, buff, 1024)) > 0)
 	{
 		wlen = write(fd_dst, buff, rlen);
 		if (wlen == -1 || wlen != rlen)
 		{
 			dprintf(STDERR_FILENO, "Error: Can't write to %s\n", to);
-			/* pas d'appel à close_fd ici, sinon exit(100) */
 			close(fd_src);
 			close(fd_dst);
 			exit(99);
 		}
 	}
-
-	/* check if last read failed (rlen == -1) */
 	if (rlen == -1)
 	{
 		dprintf(STDERR_FILENO, "Error: Can't read from file %s\n", from);
-		/* pareil, on garde le code 98 */
 		close(fd_src);
 		close(fd_dst);
 		exit(98);
 	}
-
-	/* now close both fds, and handle close errors with exit(100) */
 	if (close(fd_src) == -1)
 		close_fd(fd_src);
-
 	if (close(fd_dst) == -1)
 		close_fd(fd_dst);
 }
@@ -73,7 +61,7 @@ void copy_fromf_tof(const char *from, const char *to)
 /**
  * main - entre
  * @ac: ac
- * av: av
+ * @av: av
  * Return: 0
  */
 int main(int ac, char **av)
